@@ -12,7 +12,7 @@ module.exports = function (bundler) {
     }
   }
 
-  const writeAsset = (name, replacer) => {
+  const writeAsset = (name, replacer = (x) => x) => {
     try {
       const replaced = replacer(readAsset(name))
 
@@ -43,7 +43,7 @@ module.exports = function (bundler) {
     try {
       const CWD = process.cwd()
       const processFn = require(path.join(CWD, '.parcel-plugin-replacer.js'))
-      
+
       if (processFn && typeof processFn === 'function') {
         await processAsset(bundle, processFn)
       }
