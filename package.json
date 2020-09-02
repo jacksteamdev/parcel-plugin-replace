@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-replace",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Parcel plugin that transforms output files",
   "main": "index.js",
   "keywords": [
