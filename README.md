@@ -1,13 +1,11 @@
 # parcel-plugin-replace
 
-## Q:What is this thing solving?
-
 Simple Parcel plugin that transforms output files.
 
 ## Install
 
 ```
-npm i parcel-plugin-wrapper -D
+npm i parcel-plugin-replace -D
 ```
 
 ## Usage
