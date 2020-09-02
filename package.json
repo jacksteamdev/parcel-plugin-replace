@@ -1,7 +1,7 @@
 {
-  "name": "parcel-plugin-wrapper",
+  "name": "parcel-plugin-replace",
   "version": "0.2.2",
-  "description": "Parcel plugin that wraps output files with custom text or code.",
+  "description": "Parcel plugin that transforms output files",
   "main": "index.js",
   "keywords": [
     "parcel"
@@ -9,8 +9,8 @@
   "scripts": {
     "test": "jest"
   },
-  "repository": "https://github.com/albinotonnina/parcel-plugin-wrapper.git",
-  "author": "Albino Tonnina <albinotonnina@gmail.com>",
+  "repository": "https://github.com/jacksteamdev/parcel-plugin-replace.git",
+  "author": "Jack Steam <jacksteamdev@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "parcel-bundler": "^1.11.0"
