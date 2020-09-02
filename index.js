@@ -2,8 +2,8 @@ const path = require('path')
 const fs = require('fs')
 const logger = require('@parcel/logger')
 
-module.exports = function(bundler) {
-  const readAsset = path => {
+module.exports = function (bundler) {
+  const readAsset = (path) => {
     try {
       return fs.readFileSync(path, 'utf8')
     } catch (e) {
@@ -12,13 +12,15 @@ module.exports = function(bundler) {
     }
   }
 
-  const writeAsset = (name, {header = '', footer = ''}) => {
-    fs.writeFileSync(
-      name,
-      `${header}
-${readAsset(name)}
-${footer}`
-    )
+  const writeAsset = (name, replacer) => {
+    try {
+      const replaced = replacer(readAsset(name))
+
+      fs.writeFileSync(name, replaced)
+    } catch (error) {
+      logger.error('there was an error in your replacer')
+      throw e
+    }
   }
 
   const processAsset = async (bundle, processFn) => {
@@ -37,16 +39,17 @@ ${footer}`
     })
   }
 
-  bundler.on('bundled', async bundle => {
+  bundler.on('bundled', async (bundle) => {
     try {
       const CWD = process.cwd()
-      const processFn = require(path.join(CWD, '.assetWrapper.js'))
+      const processFn = require(path.join(CWD, '.parcel-plugin-replacer.js'))
+      
       if (processFn && typeof processFn === 'function') {
         await processAsset(bundle, processFn)
       }
     } catch (error) {
       logger.warn(
-        'parcel-plugin-wrapper cannot work without a .assetWrapper.js in the root of your project!'
+        'parcel-plugin-replace cannot work without a .parcel-plugin-replacer.js in the root of your project!'
       )
     }
   })
