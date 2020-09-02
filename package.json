@@ -14,24 +14,5 @@
   "license": "MIT",
   "peerDependencies": {
     "parcel-bundler": "^1.11.0"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@parcel/logger": "^1.11.0",
-    "jest": "^23.1.0",
-    "parcel-assert-bundle-tree": "^1.0.0",
-    "parcel-bundler": "^1.11.0"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "./src/tests/"
-    ],
-    "moduleNameMapper": {
-      ".assetWrapper.js$": "<rootDir>/tests/mockAssetWrapper.js"
-    }
   }
 }
